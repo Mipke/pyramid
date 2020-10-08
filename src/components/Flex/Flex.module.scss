@@ -1,0 +1,94 @@
+@import "../variables.scss";
+
+.fl {
+  display: flex;
+  align-items: center;
+
+  &.spaceBetween {
+    justify-content: space-between;
+  }
+  &.justifyEnd {
+    justify-content: flex-end;
+  }
+  &.justifyStart {
+    justify-content: flex-start;
+  }
+  &.justifyCenter {
+    justify-content: center;
+  }
+
+  &.column {
+    flex-direction: column;
+  }
+
+  &.alignItemsStart {
+    align-items: flex-start;
+  }
+  &.alignItemsEnd {
+    align-items: flex-end;
+  }
+
+  &.spacers {
+    > * {
+      margin-left: $padding-internal-medium;
+    }
+
+    &.smallerSpacers {
+      > * {
+        margin-left: $padding-internal-small;
+      }
+    }
+
+    &.largerSpacers {
+      > * {
+        margin-left: $padding-internal-large;
+      }
+    }
+
+    &.veryLargerSpacers {
+      > * {
+        margin-left: $padding-internal-xlarge;
+      }
+    }
+
+    > :first-child {
+      margin-left: 0;
+    }
+
+    &.column {
+      flex-direction: column;
+
+      > * {
+        margin-left: 0;
+        margin-top: $padding-internal-medium;
+      }
+
+      &.smallerSpacers {
+        > * {
+          margin-top: $padding-internal-small;
+        }
+      }
+
+      &.largerSpacers {
+        > * {
+          margin-top: $padding-internal-large;
+        }
+      }
+
+      &.veryLargerSpacers {
+        > * {
+          margin-top: $padding-internal-xlarge;
+        }
+      }
+
+      > :first-child {
+        margin-top: 0;
+      }
+    }
+  }
+  &.noSpacers {
+    > * {
+      margin: 0;
+    }
+  }
+}

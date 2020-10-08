@@ -1,0 +1,57 @@
+A component to replace manually styling with css flexbox, which
+helps cut down on the amount of manual flexbox styling required to
+layout a page. In particular, this component is handy when placing items
+next to each other without having to worry about spacing.
+
+Horizontal Flex:
+```js
+import dogNames from "dog-names";
+
+<Flex>
+    <div style={{backgroundColor: 'yellow'}}>{dogNames.allRandom()}</div>
+    <div style={{backgroundColor: 'orange'}}>{dogNames.allRandom()}</div>
+    <div style={{backgroundColor: 'gray'}}>{dogNames.allRandom()}</div>
+</Flex>
+```
+
+Vertical Flex:
+```js
+import { FlexDirection } from "./index";
+import dogNames from "dog-names";
+
+<Flex direction={FlexDirection.COLUMN}>
+    <div style={{backgroundColor: 'yellow'}}>{dogNames.allRandom()}</div>
+    <div style={{backgroundColor: 'orange'}}>{dogNames.allRandom()}</div>
+    <div style={{backgroundColor: 'gray'}}>{dogNames.allRandom()}</div>
+</Flex>
+```
+
+No Spacers:
+```js
+import dogNames from "dog-names";
+
+<Flex spacers={false}>
+    <div style={{backgroundColor: 'yellow'}}>{dogNames.allRandom()}</div>
+    <div style={{backgroundColor: 'orange'}}>{dogNames.allRandom()}</div>
+    <div style={{backgroundColor: 'gray'}}>{dogNames.allRandom()}</div>
+</Flex>
+```
+
+Complex Grouping Made Simple:
+```js
+import { JustifyContent } from './index';
+import dogNames from "dog-names";
+
+<Flex justifyContent={JustifyContent.SPACE_BETWEEN}>
+    <Flex>
+        <div style={{backgroundColor: 'yellow'}}>{dogNames.allRandom()}</div>
+        <div style={{backgroundColor: 'orange'}}>{dogNames.allRandom()}</div>
+        <div style={{backgroundColor: 'gray'}}>{dogNames.allRandom()}</div>
+    </Flex>
+    <Flex>
+        <div style={{backgroundColor: 'lightgreen'}}>{dogNames.allRandom()}</div>
+        <div style={{backgroundColor: 'lightblue'}}>{dogNames.allRandom()}</div>
+        <div style={{backgroundColor: 'red'}}>{dogNames.allRandom()}</div>
+    </Flex>
+</Flex>
+```
