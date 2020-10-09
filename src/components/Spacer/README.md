@@ -23,7 +23,7 @@ import dogNames from "dog-names";
 VERY SMALL, SMALL, MEDIUM, LARGE, VERY LARGE Spacer Sizes:
 ```js
 import dogNames from "dog-names";
-import { Size } from '../common/Size';
+import { Size } from '../../common/Size';
 import Grid from '../Grid';
 
 <Grid columns={5}>

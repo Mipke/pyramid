@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './HorizontalDivider.module.scss';
 import Spacer from '../Spacer';
 import classNames from 'classnames';
-import { Size } from '../common/Size';
+import { Size } from '../../common/Size';
 
 interface HorizontalDividerProps {
     /** Specify the size of spacers (VERY_SMALL, SMALL, MEDIUM, LARGE, VERY_LARGE) */

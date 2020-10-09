@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Flex.module.scss';
 import classNames from 'classnames';
-import { Size } from '../common/Size';
+import { Size } from '../../common/Size';
 
 export enum JustifyContent {
     SPACE_BETWEEN = 'SPACE_BETWEEN',

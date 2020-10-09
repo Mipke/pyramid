@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './WrappingGroup.module.scss';
 import classNames from 'classnames';
-import { Size } from '../common/Size';
+import { Size } from '../../common/Size';
 
 interface WrappingGroupProps {
     /** Optional className additionally placed onto the spacer div */

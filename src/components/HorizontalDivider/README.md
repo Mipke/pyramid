@@ -4,7 +4,7 @@ XS, SM, MD, LG Spacer Sizes:
 ```js
 import dogNames from "dog-names";
 import Grid from '../Grid';
-import { Size } from '../common/Size';
+import { Size } from '../../common/Size';
 
 <Grid columns={5}>
     <div>

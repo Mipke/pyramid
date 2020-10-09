@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Spacer.module.scss';
 import classNames from 'classnames';
-import { Size } from '../common/Size';
+import { Size } from '../../common/Size';
 
 interface SpacerProps {
     /** Optional className additionally placed onto the spacer div */
