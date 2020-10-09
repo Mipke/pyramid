@@ -1,28 +1,45 @@
 {
   "name": "@mipke/pyramid",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "private": false,
+  "scripts": {
+    "start": "styleguidist server",
+    "build:styleguide": "styleguidist build",
+    "build": "rollup -c",
+    "format": "yarn prettier --config .prettierrc.json --loglevel error --write \"{src,tests}/**/*.{ts,tsx}\""
+  },
+  "main": "./build/index.js",
+  "module": "./build/index.es.js",
+  "files": [
+    "build/*"
+  ],
   "dependencies": {
-    "classnames": "^2.2.6",
-    "dog-names": "^2.0.0",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-styleguidist": "^11.1.0"
+    "classnames": "^2.2.6"
+  },
+  "peerDependencies": {
+    "react": "^15.0.0 || ^16.0.0",
+    "react-dom": "^15.0.0 || ^16.0.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.8.3",
+    "@rollup/plugin-commonjs": "^15.1.0",
+    "@rollup/plugin-node-resolve": "^9.0.0",
     "@types/classnames": "^2.2.10",
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
+    "dog-names": "^2.0.0",
     "node-sass": "^4.14.1",
     "prettier": "^2.1.2",
+    "react": "^16.13.1",
     "react-docgen-typescript": "^1.20.5",
+    "react-dom": "^16.13.1",
     "react-scripts": "3.4.3",
+    "react-styleguidist": "^11.1.0",
+    "rollup": "^2.29.0",
+    "rollup-plugin-peer-deps-external": "^2.2.3",
+    "rollup-plugin-postcss": "^3.1.8",
+    "rollup-plugin-typescript2": "^0.27.3",
     "typescript": "^4.0.3"
-  },
-  "scripts": {
-    "start": "styleguidist server",
-    "build": "styleguidist build",
-    "format": "yarn prettier --config .prettierrc.json --loglevel error --write \"{src,tests}/**/*.{ts,tsx}\""
   }
 }
