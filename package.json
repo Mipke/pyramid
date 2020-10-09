@@ -1,6 +1,6 @@
 {
   "name": "@mipke/pyramid",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "private": false,
   "scripts": {
     "start": "styleguidist server",
@@ -8,8 +8,9 @@
     "build": "rollup -c",
     "format": "yarn prettier --config .prettierrc.json --loglevel error --write \"{src,tests}/**/*.{ts,tsx}\""
   },
-  "main": "./build/index.js",
-  "module": "./build/index.es.js",
+  "main": "build/index.js",
+  "module": "build/index.es.js",
+  "typings": "build/index.d.ts",
   "files": [
     "build/*"
   ],
