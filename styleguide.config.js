@@ -1,5 +1,5 @@
 module.exports = {
-    title: 'Pyramid Components',
+    title: 'Pyramid',
     propsParser: require('react-docgen-typescript').withCustomConfig(
         './tsconfig.json'
     ).parse,
