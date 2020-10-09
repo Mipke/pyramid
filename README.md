@@ -1,7 +1,7 @@
 # Pyramid
 [![npm version](https://badge.fury.io/js/%40mipke%2Fpyramid.svg)](https://badge.fury.io/js/%40mipke%2Fpyramid)
 
->A library of reusable base-layer React components that aim to make laying out pages easier and to eliminate repetitive 
+>A library of base-layer React components that aim to make laying out pages easier and to eliminate repetitive 
 >css styling whose only purpose is to layout items on a screen
 
 ## Motivation
