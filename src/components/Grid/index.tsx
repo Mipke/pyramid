@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Grid.module.scss';
 import classNames from 'classnames';
-import { Size } from '../../common/Size';
+import { Size } from '../common/Size';
 
 interface GridProps {
     /** Optional className additionally placed onto wrapping div */

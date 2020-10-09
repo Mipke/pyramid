@@ -1,51 +1,45 @@
-@import "../../common/variables";
+@import "../common/variables";
 
-.stack {
+.wrappingGroup {
+  display: flex;
+  flex-wrap: wrap;
+  white-space: nowrap;
 
   > * {
-    margin-left: auto;
-    margin-right: auto;
+    margin-right: $padding-internal-medium;
     margin-top: $padding-internal-medium;
-  }
-
-  &.doNotCenterItems {
-    > * {
-      margin-left: unset;
-      margin-right: unset;
-    }
   }
 
   &.verySmallerSpacers {
     > * {
+      margin-right: $padding-internal-xsmall;
       margin-top: $padding-internal-xsmall;
     }
   }
 
+
   &.smallerSpacers {
     > * {
+      margin-right: $padding-internal-small;
       margin-top: $padding-internal-small;
     }
   }
 
   &.largerSpacers {
     > * {
+      margin-right: $padding-internal-large;
       margin-top: $padding-internal-large;
     }
   }
 
   &.veryLargerSpacers {
     > * {
+      margin-right: $padding-internal-xlarge;
       margin-top: $padding-internal-xlarge;
     }
   }
 
-  > :first-child {
-    margin-top: 0;
-  }
-
-  &.noSpacers {
-    > * {
-      margin: 0;
-    }
+  > :last-child {
+    margin-right: 0;
   }
 }

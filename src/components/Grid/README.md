@@ -17,7 +17,7 @@ import dogNames from "dog-names";
 NONE, VERY SMALL, SMALL, MEDIUM, LARGE, VERY LARGE Grid gaps:
 ```js
 import dogNames from "dog-names";
-import { Size } from '../../common/Size'; 
+import { Size } from '../common/Size'; 
 
 <Grid gaps={Size.VERY_LARGE} row={3} columns={2}>
     <Grid gaps={'NONE'} rows={2} columns={2}>

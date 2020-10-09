@@ -1,11 +1,11 @@
 {
   "name": "@mipke/pyramid",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "private": false,
   "scripts": {
     "start": "styleguidist server",
     "build:styleguide": "styleguidist build",
-    "build": "rollup -c",
+    "build": "rimraf build && rollup -c",
     "format": "yarn prettier --config .prettierrc.json --loglevel error --write \"{src,tests}/**/*.{ts,tsx}\""
   },
   "main": "build/index.js",
@@ -37,6 +37,7 @@
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.3",
     "react-styleguidist": "^11.1.0",
+    "rimraf": "^3.0.2",
     "rollup": "^2.29.0",
     "rollup-plugin-peer-deps-external": "^2.2.3",
     "rollup-plugin-postcss": "^3.1.8",

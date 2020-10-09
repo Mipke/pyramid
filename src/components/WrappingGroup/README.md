@@ -19,8 +19,8 @@ for (let i=0; i<50; i ++) {
 VERY SMALL, SMALL, MEDIUM, LARGE, VERY LARGE gaps:
 ```js
 import dogNames from "dog-names";
-import Grid from '../Grid';
-import { Size } from '../../common/Size';
+import Grid from './index';
+import { Size } from '../common/Size';
 
 const items = [];
 for (let i=0; i<50; i ++) {
