@@ -1,7 +1,7 @@
 {
   "name": "@mipke/pyramid",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "dependencies": {
     "classnames": "^2.2.6",
     "dog-names": "^2.0.0",
