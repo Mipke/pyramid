@@ -1,6 +1,6 @@
 {
   "name": "@mipke/pyramid",
-  "version": "0.8.0",
+  "version": "1.0.0",
   "private": false,
   "scripts": {
     "start": "styleguidist server",
@@ -14,6 +14,24 @@
   "files": [
     "build/*"
   ],
+  "title": "Pyramid",
+  "keywords": [
+    "mipke",
+    "component",
+    "components",
+    "frontend",
+    "react",
+    "react-component",
+    "ui"
+  ],
+  "homepage": "https://pyramid.mipke.com/",
+  "bugs": {
+    "url": "https://github.com/Mipke/pyramid/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Mipke/pyramid"
+  },
   "dependencies": {
     "classnames": "^2.2.6"
   },
