@@ -1,4 +1,5 @@
 module.exports = {
+    title: 'Pyramid Components',
     propsParser: require('react-docgen-typescript').withCustomConfig(
         './tsconfig.json'
     ).parse,
@@ -9,7 +10,8 @@ module.exports = {
                     rel: 'stylesheet',
                     href: 'https://fonts.googleapis.com/css2?family=Rubik'
                 }
-            ]
+            ],
+            raw: '<style>body { font-family: "Rubik", "Helvetica", "Arial", sans-serif }</style>'
         }
     },
     theme: {
