@@ -1,6 +1,6 @@
 {
   "name": "@mipke/pyramid",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "private": false,
   "scripts": {
     "start": "styleguidist server",
