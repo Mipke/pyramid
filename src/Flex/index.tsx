@@ -40,7 +40,7 @@ interface FlexProps {
     spacerSize?: Size;
 }
 
-export const Flex = React.forwardRef<HTMLDivElement, FlexProps>(
+export default React.forwardRef<HTMLDivElement, FlexProps>(
     (
         { className = '', style, children, direction = FlexDirection.ROW, justifyContent, alignContent, spacers = true, spacerSize = Size.MEDIUM }: FlexProps,
         ref
