@@ -1,4 +1,4 @@
-@import "../variables.scss";
+@import "../../common/variables";
 
 .fl {
   display: flex;
@@ -33,6 +33,12 @@
       margin-left: $padding-internal-medium;
     }
 
+    &.verySmallerSpacers {
+      > * {
+        margin-left: $padding-internal-xsmall;
+      }
+    }
+
     &.smallerSpacers {
       > * {
         margin-left: $padding-internal-small;
@@ -61,6 +67,12 @@
       > * {
         margin-left: 0;
         margin-top: $padding-internal-medium;
+      }
+
+      &.verySmallerSpacers {
+        > * {
+          margin-top: $padding-internal-xsmall;
+        }
       }
 
       &.smallerSpacers {

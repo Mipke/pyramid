@@ -10,7 +10,7 @@ import dogNames from "dog-names";
 <Flex>
     <div style={{backgroundColor: 'yellow'}}>{dogNames.allRandom()}</div>
     <div style={{backgroundColor: 'orange'}}>{dogNames.allRandom()}</div>
-    <div style={{backgroundColor: 'gray'}}>{dogNames.allRandom()}</div>
+    <div style={{backgroundColor: 'coral'}}>{dogNames.allRandom()}</div>
 </Flex>
 ```
 
@@ -22,7 +22,7 @@ import dogNames from "dog-names";
 <Flex direction={FlexDirection.COLUMN}>
     <div style={{backgroundColor: 'yellow'}}>{dogNames.allRandom()}</div>
     <div style={{backgroundColor: 'orange'}}>{dogNames.allRandom()}</div>
-    <div style={{backgroundColor: 'gray'}}>{dogNames.allRandom()}</div>
+    <div style={{backgroundColor: 'coral'}}>{dogNames.allRandom()}</div>
 </Flex>
 ```
 
@@ -33,7 +33,7 @@ import dogNames from "dog-names";
 <Flex spacers={false}>
     <div style={{backgroundColor: 'yellow'}}>{dogNames.allRandom()}</div>
     <div style={{backgroundColor: 'orange'}}>{dogNames.allRandom()}</div>
-    <div style={{backgroundColor: 'gray'}}>{dogNames.allRandom()}</div>
+    <div style={{backgroundColor: 'coral'}}>{dogNames.allRandom()}</div>
 </Flex>
 ```
 
@@ -46,7 +46,7 @@ import dogNames from "dog-names";
     <Flex>
         <div style={{backgroundColor: 'yellow'}}>{dogNames.allRandom()}</div>
         <div style={{backgroundColor: 'orange'}}>{dogNames.allRandom()}</div>
-        <div style={{backgroundColor: 'gray'}}>{dogNames.allRandom()}</div>
+        <div style={{backgroundColor: 'coral'}}>{dogNames.allRandom()}</div>
     </Flex>
     <Flex>
         <div style={{backgroundColor: 'lightgreen'}}>{dogNames.allRandom()}</div>

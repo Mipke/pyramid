@@ -1,0 +1,19 @@
+@import "../../common/variables";
+
+.sp {
+  width: 100%;
+  height: $padding-internal-medium;
+
+  &.xsmall {
+    height: $padding-internal-xsmall;
+  }
+  &.small {
+    height: $padding-internal-small;
+  }
+  &.large {
+    height: $padding-internal-large;
+  }
+  &.veryLarge {
+    height: $padding-internal-xlarge;
+  }
+}

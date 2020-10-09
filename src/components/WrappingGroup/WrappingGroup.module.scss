@@ -1,0 +1,45 @@
+@import "../../common/variables";
+
+.wrappingGroup {
+  display: flex;
+  flex-wrap: wrap;
+  white-space: nowrap;
+
+  > * {
+    margin-right: $padding-internal-medium;
+    margin-top: $padding-internal-medium;
+  }
+
+  &.verySmallerSpacers {
+    > * {
+      margin-right: $padding-internal-xsmall;
+      margin-top: $padding-internal-xsmall;
+    }
+  }
+
+
+  &.smallerSpacers {
+    > * {
+      margin-right: $padding-internal-small;
+      margin-top: $padding-internal-small;
+    }
+  }
+
+  &.largerSpacers {
+    > * {
+      margin-right: $padding-internal-large;
+      margin-top: $padding-internal-large;
+    }
+  }
+
+  &.veryLargerSpacers {
+    > * {
+      margin-right: $padding-internal-xlarge;
+      margin-top: $padding-internal-xlarge;
+    }
+  }
+
+  > :last-child {
+    margin-right: 0;
+  }
+}

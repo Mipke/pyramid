@@ -1,0 +1,51 @@
+@import "../../common/variables";
+
+.stack {
+
+  > * {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: $padding-internal-medium;
+  }
+
+  &.doNotCenterItems {
+    > * {
+      margin-left: unset;
+      margin-right: unset;
+    }
+  }
+
+  &.verySmallerSpacers {
+    > * {
+      margin-top: $padding-internal-xsmall;
+    }
+  }
+
+  &.smallerSpacers {
+    > * {
+      margin-top: $padding-internal-small;
+    }
+  }
+
+  &.largerSpacers {
+    > * {
+      margin-top: $padding-internal-large;
+    }
+  }
+
+  &.veryLargerSpacers {
+    > * {
+      margin-top: $padding-internal-xlarge;
+    }
+  }
+
+  > :first-child {
+    margin-top: 0;
+  }
+
+  &.noSpacers {
+    > * {
+      margin: 0;
+    }
+  }
+}

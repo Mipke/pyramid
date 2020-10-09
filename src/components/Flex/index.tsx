@@ -1,55 +1,48 @@
 import React from 'react';
 import styles from './Flex.module.scss';
 import classNames from 'classnames';
+import { Size } from '../../common/Size';
 
 export enum JustifyContent {
     SPACE_BETWEEN = 'SPACE_BETWEEN',
-    END = "END",
-    START = "START",
-    CENTER = "CENTER"
+    END = 'END',
+    START = 'START',
+    CENTER = 'CENTER'
 }
 
 export enum FlexDirection {
-    ROW= "ROW",
-    COLUMN = "COLUMN"
+    ROW = 'ROW',
+    COLUMN = 'COLUMN'
 }
 
 export enum FlexAlignContent {
-    START= "START",
-    CENTER = "CENTER",
-    END = "END"
-}
-
-export enum FlexSpacerSize {
-    SMALL= "SMALL",
-    NORMAL = "NORMAL",
-    LARGE = 'LARGE',
-    VERY_LARGE = 'VERY_LARGE'
+    START = 'START',
+    CENTER = 'CENTER',
+    END = 'END'
 }
 
 interface FlexProps {
-    /** Gets called when the user clicks on the button */
+    /** Optional className additionally placed onto wrapping div */
     className?: string;
-    /** Children */
+    /** Optional CSS properties object placed onto wrapping div */
+    style?: React.CSSProperties;
+    /** Components wrapped in flexbox */
     children: React.ReactFragment;
+    /** Direction of stacking of children (ROW, COLUMN) */
     direction?: FlexDirection;
+    /** Corresponding flexbox justifyContent setting (SPACE_BETWEEN, START, END, CENTER) */
     justifyContent?: JustifyContent;
+    /** Corresponding flexbox alignContent setting (START, CENTER, END) */
     alignContent?: FlexAlignContent;
+    /** Whether or not space is put between children elements */
     spacers?: boolean;
-    spacerSize?: FlexSpacerSize;
+    /** Specify the size of spacers (VERY_SMALL, SMALL, MEDIUM, LARGE, VERY_LARGE) */
+    spacerSize?: Size;
 }
 
 export const Flex = React.forwardRef<HTMLDivElement, FlexProps>(
     (
-        {
-            className = '',
-            children,
-            direction = FlexDirection.ROW,
-            justifyContent,
-            alignContent,
-            spacers = true,
-            spacerSize = FlexSpacerSize.NORMAL
-        }: FlexProps,
+        { className = '', style, children, direction = FlexDirection.ROW, justifyContent, alignContent, spacers = true, spacerSize = Size.MEDIUM }: FlexProps,
         ref
     ) => (
         <div
@@ -63,10 +56,12 @@ export const Flex = React.forwardRef<HTMLDivElement, FlexProps>(
                 [styles.column]: direction === FlexDirection.COLUMN,
                 [styles.spacers]: spacers,
                 [styles.noSpacers]: !spacers,
-                [styles.smallerSpacers]: spacerSize === FlexSpacerSize.SMALL,
-                [styles.largerSpacers]: spacerSize === FlexSpacerSize.LARGE,
-                [styles.veryLargerSpacers]: spacerSize === FlexSpacerSize.VERY_LARGE
+                [styles.verySmallerSpacers]: spacerSize === Size.VERY_SMALL,
+                [styles.smallerSpacers]: spacerSize === Size.SMALL,
+                [styles.largerSpacers]: spacerSize === Size.LARGE,
+                [styles.veryLargerSpacers]: spacerSize === Size.VERY_LARGE
             })}
+            style={style}
             ref={ref}
         >
             {children}

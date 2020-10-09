@@ -1,0 +1,21 @@
+@import "../../common/variables";
+
+.grid {
+  display: grid;
+
+  &.verySmallGaps {
+    grid-gap: $padding-internal-xsmall;
+  }
+  &.smallGaps {
+    grid-gap: $padding-internal-small;
+  }
+  &.mediumGaps {
+    grid-gap: $padding-internal-medium;
+  }
+  &.largeGaps {
+    grid-gap: $padding-internal-large;
+  }
+  &.veryLargeGaps {
+    grid-gap: $padding-internal-xlarge;
+  }
+}

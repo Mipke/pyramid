@@ -1,5 +1,5 @@
 {
-  "name": "pyramid",
+  "name": "@mipke/pyramid",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -8,10 +8,6 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-styleguidist": "^11.1.0"
-  },
-  "peerDependencies": {
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0"
   },
   "devDependencies": {
     "@types/classnames": "^2.2.10",
@@ -25,23 +21,8 @@
     "typescript": "^4.0.3"
   },
   "scripts": {
-    "start": "npx styleguidist server",
-    "build": "npx styleguidist build",
+    "start": "styleguidist server",
+    "build": "styleguidist build",
     "format": "yarn prettier --config .prettierrc.json --loglevel error --write \"{src,tests}/**/*.{ts,tsx}\""
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
   }
 }
