@@ -22,7 +22,7 @@ export default React.forwardRef<HTMLDivElement, StackProps>(
     ({ className = '', style, children, centerItems = false, spacers = true, spacerSize = Size.MEDIUM }, ref) => (
         <div
             className={classNames(styles.stack, className, {
-                [styles.doNotCenterItems]: !centerItems,
+                [styles.centerItems]: centerItems,
                 [styles.noSpacers]: !spacers,
                 [styles.verySmallerSpacers]: spacerSize === Size.VERY_SMALL,
                 [styles.smallerSpacers]: spacerSize === Size.SMALL,
