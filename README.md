@@ -1,7 +1,7 @@
 # Pyramid
 
 >A library of base-layer React components that aim to make laying out pages easier and to eliminate repetitive 
->css styling whose only purpose is to layout items on a screen>
+>css styling whose only purpose is to layout items on a screen
 
 [![NPM version][npm-image]][npm-url]
 
