@@ -2,6 +2,8 @@ import React from 'react';
 import styles from './Flex.module.scss';
 import classNames from 'classnames';
 import { Size } from '../../common/Size';
+import { Unit } from '../../common/Unit';
+import styled from '@emotion/styled';
 
 export enum JustifyContent {
     SPACE_BETWEEN = 'SPACE_BETWEEN',
@@ -34,37 +36,53 @@ interface FlexProps {
     justifyContent?: JustifyContent;
     /** Corresponding flexbox alignContent setting (START, CENTER, END) */
     alignContent?: FlexAlignContent;
-    /** Whether or not space is put between children elements */
-    spacers?: boolean;
-    /** Specify the size of spacers (VERY_SMALL, SMALL, MEDIUM, LARGE, VERY_LARGE) */
-    spacerSize?: Size;
+    /** Specify the size of spacers (VERY_SMALL, SMALL, MEDIUM, LARGE, VERY_LARGE, number) */
+    spacerSize?: Size | number | 'NONE';
+    /** If spacerSize is a number, optionally specify the corresponding measuring unit (PX, EM, EX, CH, REM, VW, VH, VMIN, VMAX, PERC, CM, MM, IN, PT, PC) */
+    spacerUnit?: Unit;
 }
 
-export default React.forwardRef<HTMLDivElement, FlexProps>(
+export const Flex = React.forwardRef<HTMLDivElement, FlexProps>(
     (
-        { className = '', style, children, direction = FlexDirection.ROW, justifyContent, alignContent, spacers = true, spacerSize = Size.MEDIUM }: FlexProps,
+        {
+            className = '',
+            style,
+            children,
+            direction = FlexDirection.ROW,
+            justifyContent,
+            alignContent,
+            spacerSize = Size.MEDIUM,
+            spacerUnit = Unit.PX
+        }: FlexProps,
         ref
-    ) => (
-        <div
-            className={classNames(styles.fl, className, {
-                [styles.spaceBetween]: justifyContent === JustifyContent.SPACE_BETWEEN,
-                [styles.justifyEnd]: justifyContent === JustifyContent.END,
-                [styles.justifyStart]: justifyContent === JustifyContent.START,
-                [styles.justifyCenter]: justifyContent === JustifyContent.CENTER,
-                [styles.alignItemsStart]: alignContent === FlexAlignContent.START,
-                [styles.alignItemsEnd]: alignContent === FlexAlignContent.END,
-                [styles.column]: direction === FlexDirection.COLUMN,
-                [styles.spacers]: spacers,
-                [styles.noSpacers]: !spacers,
-                [styles.verySmallerSpacers]: spacerSize === Size.VERY_SMALL,
-                [styles.smallerSpacers]: spacerSize === Size.SMALL,
-                [styles.largerSpacers]: spacerSize === Size.LARGE,
-                [styles.veryLargerSpacers]: spacerSize === Size.VERY_LARGE
-            })}
-            style={style}
-            ref={ref}
-        >
-            {children}
-        </div>
-    )
+    ) => {
+        const ParentDiv = styled('div')`
+            & > * {
+                ${typeof spacerSize === 'number' ? `margin-left: ${spacerSize}${spacerUnit}` : ''}
+            }
+        `;
+        return (
+            <ParentDiv
+                className={classNames(styles.fl, className, {
+                    [styles.spaceBetween]: justifyContent === JustifyContent.SPACE_BETWEEN,
+                    [styles.justifyEnd]: justifyContent === JustifyContent.END,
+                    [styles.justifyStart]: justifyContent === JustifyContent.START,
+                    [styles.justifyCenter]: justifyContent === JustifyContent.CENTER,
+                    [styles.alignItemsStart]: alignContent === FlexAlignContent.START,
+                    [styles.alignItemsEnd]: alignContent === FlexAlignContent.END,
+                    [styles.column]: direction === FlexDirection.COLUMN,
+                    [styles.spacers]: spacerSize !== 'NONE',
+                    [styles.verySmallerSpacers]: spacerSize === Size.VERY_SMALL,
+                    [styles.smallerSpacers]: spacerSize === Size.SMALL,
+                    [styles.mediumSpacers]: spacerSize === Size.MEDIUM,
+                    [styles.largerSpacers]: spacerSize === Size.LARGE,
+                    [styles.veryLargerSpacers]: spacerSize === Size.VERY_LARGE
+                })}
+                style={style}
+                ref={ref}
+            >
+                {children}
+            </ParentDiv>
+        );
+    }
 );

@@ -16,11 +16,12 @@ for (let i=0; i<50; i ++) {
 </WrappingGroup>
 ```
 
-VERY SMALL, SMALL, MEDIUM, LARGE, VERY LARGE gaps:
+NONE, VERY SMALL, SMALL, MEDIUM, LARGE, VERY LARGE, Manually Specified, Manually Specified w/ Unit gaps:
 ```js
 import dogNames from "dog-names";
-import Grid from '../Grid';
+import { Grid } from '../Grid';
 import { Size } from '../../common/Size';
+import { Unit } from '../../common/Unit';
 
 const items = [];
 for (let i=0; i<50; i ++) {
@@ -28,6 +29,11 @@ for (let i=0; i<50; i ++) {
 }
 
 <Grid columns={2}>
+    <WrappingGroup spacerSize={'NONE'}>
+        {items.map(i => (
+            <div key={i} style={{backgroundColor: 'lightgreen'}}>{dogNames.allRandom()}</div>
+        ))} 
+    </WrappingGroup>
     <WrappingGroup spacerSize={Size.VERY_SMALL}>
         {items.map(i => (
             <div key={i} style={{backgroundColor: 'lightgreen'}}>{dogNames.allRandom()}</div>
@@ -49,6 +55,16 @@ for (let i=0; i<50; i ++) {
         ))} 
     </WrappingGroup>
     <WrappingGroup spacerSize={Size.VERY_LARGE}>
+        {items.map(i => (
+            <div key={i} style={{backgroundColor: 'lightgreen'}}>{dogNames.allRandom()}</div>
+        ))} 
+    </WrappingGroup>
+    <WrappingGroup spacerSize={12}>
+        {items.map(i => (
+            <div key={i} style={{backgroundColor: 'lightgreen'}}>{dogNames.allRandom()}</div>
+        ))} 
+    </WrappingGroup>
+    <WrappingGroup spacerSize={2} spacerUnit={Unit.REM}>
         {items.map(i => (
             <div key={i} style={{backgroundColor: 'lightgreen'}}>{dogNames.allRandom()}</div>
         ))} 

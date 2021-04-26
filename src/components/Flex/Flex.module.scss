@@ -29,10 +29,6 @@
   }
 
   &.spacers {
-    > * {
-      margin-left: $padding-internal-medium;
-    }
-
     &.verySmallerSpacers {
       > * {
         margin-left: $padding-internal-xsmall;
@@ -42,6 +38,12 @@
     &.smallerSpacers {
       > * {
         margin-left: $padding-internal-small;
+      }
+    }
+
+    &.mediumSpacers {
+      > * {
+        margin-left: $padding-internal-medium;
       }
     }
 
@@ -96,11 +98,6 @@
       > :first-child {
         margin-top: 0;
       }
-    }
-  }
-  &.noSpacers {
-    > * {
-      margin: 0;
     }
   }
 }

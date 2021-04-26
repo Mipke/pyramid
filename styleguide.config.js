@@ -1,8 +1,8 @@
 module.exports = {
     title: 'Pyramid',
-    propsParser: require('react-docgen-typescript').withCustomConfig(
-        './tsconfig.json'
-    ).parse,
+    propsParser: require('react-docgen-typescript').withCustomConfig('./tsconfig.json', {
+        savePropValueAsString: true,
+    }).parse,
     template: {
         head: {
             links: [

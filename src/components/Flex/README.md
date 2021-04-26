@@ -30,7 +30,30 @@ No Spacers:
 ```js
 import dogNames from "dog-names";
 
-<Flex spacers={false}>
+<Flex spacerSize={'NONE'}>
+    <div style={{backgroundColor: 'yellow'}}>{dogNames.allRandom()}</div>
+    <div style={{backgroundColor: 'orange'}}>{dogNames.allRandom()}</div>
+    <div style={{backgroundColor: 'coral'}}>{dogNames.allRandom()}</div>
+</Flex>
+```
+
+Manually specified spacer size:
+```js
+import dogNames from "dog-names";
+
+<Flex spacerSize={12}>
+    <div style={{backgroundColor: 'yellow'}}>{dogNames.allRandom()}</div>
+    <div style={{backgroundColor: 'orange'}}>{dogNames.allRandom()}</div>
+    <div style={{backgroundColor: 'coral'}}>{dogNames.allRandom()}</div>
+</Flex>
+```
+
+Manually specified spacer size with specified 'Unit':
+```js
+import dogNames from "dog-names";
+import { Unit } from '../../common/Unit';
+
+<Flex spacerSize={2} spacerUnit={Unit.REM}>
     <div style={{backgroundColor: 'yellow'}}>{dogNames.allRandom()}</div>
     <div style={{backgroundColor: 'orange'}}>{dogNames.allRandom()}</div>
     <div style={{backgroundColor: 'coral'}}>{dogNames.allRandom()}</div>

@@ -17,7 +17,7 @@ interface GridItemProps {
     children: React.ReactFragment;
 }
 
-export default ({ column, spanColumn = 1, row, spanRow = 1, className = '', style = {}, children }: GridItemProps) => (
+export const GridItem = ({ column, spanColumn = 1, row, spanRow = 1, className = '', style = {}, children }: GridItemProps) => (
     <div
         className={className}
         style={{

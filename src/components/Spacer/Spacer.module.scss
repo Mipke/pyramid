@@ -2,13 +2,15 @@
 
 .sp {
   width: 100%;
-  height: $padding-internal-medium;
 
   &.xsmall {
     height: $padding-internal-xsmall;
   }
   &.small {
     height: $padding-internal-small;
+  }
+  &.medium {
+    height: $padding-internal-medium;
   }
   &.large {
     height: $padding-internal-large;

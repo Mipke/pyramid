@@ -3,7 +3,7 @@ A container component used to help place content into a grid
 Various Sized GridItems:
 ```js
 import dogNames from "dog-names";
-import Grid from '../Grid';
+import { Grid } from '../Grid';
 
 <Grid rows={4} columns={10}>
     <GridItem style={{backgroundColor: 'yellow'}}>{dogNames.allRandom()}</GridItem>

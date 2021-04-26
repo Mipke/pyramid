@@ -5,11 +5,6 @@
   flex-wrap: wrap;
   white-space: nowrap;
 
-  > * {
-    margin-right: $padding-internal-medium;
-    margin-top: $padding-internal-medium;
-  }
-
   &.verySmallerSpacers {
     > * {
       margin-right: $padding-internal-xsmall;
@@ -17,11 +12,17 @@
     }
   }
 
-
   &.smallerSpacers {
     > * {
       margin-right: $padding-internal-small;
       margin-top: $padding-internal-small;
+    }
+  }
+
+  &.mediumSpacers {
+    > * {
+      margin-right: $padding-internal-medium;
+      margin-top: $padding-internal-medium;
     }
   }
 

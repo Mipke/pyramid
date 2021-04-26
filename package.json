@@ -33,33 +33,32 @@
     "url": "https://github.com/Mipke/pyramid"
   },
   "dependencies": {
-    "classnames": "^2.2.6"
-  },
-  "peerDependencies": {
-    "react": "^15.0.0 || ^16.0.0",
-    "react-dom": "^15.0.0 || ^16.0.0"
+    "@emotion/react": "^11.1.5",
+    "@emotion/styled": "^11.3.0",
+    "classnames": "^2.3.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.8.3",
-    "@rollup/plugin-commonjs": "^15.1.0",
-    "@rollup/plugin-node-resolve": "^9.0.0",
-    "@types/classnames": "^2.2.10",
-    "@types/node": "^12.0.0",
-    "@types/react": "^16.9.0",
-    "@types/react-dom": "^16.9.0",
+    "@babel/core": "^7.13.16",
+    "@babel/helper-builder-react-jsx": "^7.12.13",
+    "@babel/helper-builder-react-jsx-experimental": "^7.12.11",
+    "@rollup/plugin-commonjs": "^18.0.0",
+    "@rollup/plugin-node-resolve": "^11.2.1",
+    "@types/node": "^14.14.41",
+    "@types/react": "^17.0.4",
+    "@types/react-dom": "^17.0.3",
     "dog-names": "^2.0.0",
-    "node-sass": "^4.14.1",
-    "prettier": "^2.1.2",
-    "react": "^16.13.1",
-    "react-docgen-typescript": "^1.20.5",
-    "react-dom": "^16.13.1",
-    "react-scripts": "3.4.3",
-    "react-styleguidist": "^11.1.0",
+    "node-sass": "^5.0.0",
+    "prettier": "^2.2.1",
+    "react": "^17.0.2",
+    "react-docgen-typescript": "^1.22.0",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3",
+    "react-styleguidist": "^11.1.6",
     "rimraf": "^3.0.2",
-    "rollup": "^2.29.0",
-    "rollup-plugin-peer-deps-external": "^2.2.3",
-    "rollup-plugin-postcss": "^3.1.8",
-    "rollup-plugin-typescript2": "^0.27.3",
-    "typescript": "^4.0.3"
+    "rollup": "^2.45.2",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.0",
+    "rollup-plugin-typescript2": "^0.30.0",
+    "typescript": "^4.2.4"
   }
 }

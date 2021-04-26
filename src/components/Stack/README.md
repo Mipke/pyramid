@@ -26,9 +26,29 @@ No Spacers:
 ```js
 import dogNames from "dog-names";
 
-<Stack spacers={false}>
+<Stack spacerSize={'NONE'}>
     <div style={{backgroundColor: 'yellow'}}>{dogNames.allRandom()}</div>
     <div style={{backgroundColor: 'orange'}}>{dogNames.allRandom()}</div>
     <div style={{backgroundColor: 'lightgreen'}}>{dogNames.allRandom()}</div>
 </Stack>
+```
+
+Manually specified, Manually specified w/ unit spacer sizes:
+```js
+import dogNames from "dog-names";
+import { Grid } from '../Grid';
+import { Unit } from '../../common/Unit';
+
+<Grid columns={2}>
+    <Stack spacerSize={12}>
+        <div style={{backgroundColor: 'yellow'}}>{dogNames.allRandom()}</div>
+        <div style={{backgroundColor: 'orange'}}>{dogNames.allRandom()}</div>
+        <div style={{backgroundColor: 'lightgreen'}}>{dogNames.allRandom()}</div>
+    </Stack>
+    <Stack spacerSize={2} spacerUnit={Unit.REM}>
+        <div style={{backgroundColor: 'yellow'}}>{dogNames.allRandom()}</div>
+        <div style={{backgroundColor: 'orange'}}>{dogNames.allRandom()}</div>
+        <div style={{backgroundColor: 'lightgreen'}}>{dogNames.allRandom()}</div>
+    </Stack>
+</Grid>
 ```

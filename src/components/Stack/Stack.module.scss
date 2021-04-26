@@ -1,9 +1,6 @@
 @import "src/common/variables";
 
 .stack {
-  > * {
-    margin-top: $padding-internal-medium;
-  }
 
   &.centerItems {
     > * {
@@ -12,37 +9,39 @@
     }
   }
 
-  &.verySmallerSpacers {
-    > * {
-      margin-top: $padding-internal-xsmall;
+  &.spacers {
+    &.verySmallerSpacers {
+      > * {
+        margin-top: $padding-internal-xsmall;
+      }
     }
-  }
 
-  &.smallerSpacers {
-    > * {
-      margin-top: $padding-internal-small;
+    &.smallerSpacers {
+      > * {
+        margin-top: $padding-internal-small;
+      }
     }
-  }
 
-  &.largerSpacers {
-    > * {
-      margin-top: $padding-internal-large;
+    &.mediumSpacers {
+      > * {
+        margin-top: $padding-internal-medium;
+      }
     }
-  }
 
-  &.veryLargerSpacers {
-    > * {
-      margin-top: $padding-internal-xlarge;
+    &.largerSpacers {
+      > * {
+        margin-top: $padding-internal-large;
+      }
     }
-  }
 
-  > :first-child {
-    margin-top: 0;
-  }
+    &.veryLargerSpacers {
+      > * {
+        margin-top: $padding-internal-xlarge;
+      }
+    }
 
-  &.noSpacers {
-    > * {
-      margin: 0;
+    > :first-child {
+      margin-top: 0;
     }
   }
 }
