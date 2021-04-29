@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import { Size } from '../../common/Size';
 import { Unit } from '../../common/Unit';
 import styled from '@emotion/styled';
+import { css } from '@emotion/react';
 
 interface GridProps {
     /** Optional className additionally placed onto wrapping div */
@@ -22,29 +23,39 @@ interface GridProps {
     gapsUnit?: Unit;
 }
 
+interface DynamicStylesProps {
+    gaps: Size | number | 'NONE';
+    gapsUnit: Unit;
+}
+
+const dynamicStyles = ({ gaps, gapsUnit }: DynamicStylesProps) =>
+    css`
+        ${typeof gaps === 'number' ? `grid-gap: ${gaps}${gapsUnit}` : ''}
+    `;
+const StyledWrapper = styled.div`
+    ${dynamicStyles}
+`;
+
 export const Grid = React.forwardRef<HTMLDivElement, GridProps>(
-    ({ children, className = '', style, columns, rows, gaps = Size.MEDIUM, gapsUnit = Unit.PX }, ref) => {
-        const ParentDiv = styled('div')`
-            ${typeof gaps === 'number' ? `grid-gap: ${gaps}${gapsUnit}` : ''}
-        `;
-        return (
-            <ParentDiv
-                className={classNames(styles.grid, className, {
-                    [styles.verySmallGaps]: gaps === Size.VERY_SMALL,
-                    [styles.smallGaps]: gaps === Size.SMALL,
-                    [styles.mediumGaps]: gaps === Size.MEDIUM,
-                    [styles.largeGaps]: gaps === Size.LARGE,
-                    [styles.veryLargeGaps]: gaps === Size.VERY_LARGE
-                })}
-                style={{
-                    ...(style ?? {}),
-                    gridTemplateColumns: columns != null ? (typeof columns === 'number' ? `repeat(${columns}, 1fr)` : columns.join(' ')) : undefined,
-                    gridTemplateRows: rows != null ? (typeof rows === 'number' ? `repeat(${rows}, auto)` : rows.join(' ')) : undefined
-                }}
-                ref={ref}
-            >
-                {children}
-            </ParentDiv>
-        );
-    }
+    ({ children, className = '', style, columns, rows, gaps = Size.MEDIUM, gapsUnit = Unit.PX }, ref) => (
+        <StyledWrapper
+            className={classNames(styles.grid, className, {
+                [styles.verySmallGaps]: gaps === Size.VERY_SMALL,
+                [styles.smallGaps]: gaps === Size.SMALL,
+                [styles.mediumGaps]: gaps === Size.MEDIUM,
+                [styles.largeGaps]: gaps === Size.LARGE,
+                [styles.veryLargeGaps]: gaps === Size.VERY_LARGE
+            })}
+            style={{
+                ...(style ?? {}),
+                gridTemplateColumns: columns != null ? (typeof columns === 'number' ? `repeat(${columns}, 1fr)` : columns.join(' ')) : undefined,
+                gridTemplateRows: rows != null ? (typeof rows === 'number' ? `repeat(${rows}, auto)` : rows.join(' ')) : undefined
+            }}
+            ref={ref}
+            gaps={gaps}
+            gapsUnit={gapsUnit}
+        >
+            {children}
+        </StyledWrapper>
+    )
 );

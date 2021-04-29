@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import { Size } from '../../common/Size';
 import styled from '@emotion/styled';
 import { Unit } from '../../common/Unit';
+import { css } from '@emotion/react';
 
 interface SpacerProps {
     /** Optional className additionally placed onto the spacer div */
@@ -16,20 +17,30 @@ interface SpacerProps {
     sizeUnit?: Unit;
 }
 
-export const Spacer = ({ size = Size.LARGE, sizeUnit = Unit.PX, className = '', style }: SpacerProps) => {
-    const ParentDiv = styled('div')`
+interface DynamicStylesProps {
+    size: Size | number | 'NONE';
+    sizeUnit: Unit;
+}
+
+const dynamicStyles = ({ size, sizeUnit }: DynamicStylesProps) =>
+    css`
         ${typeof size === 'number' ? `height: ${size}${sizeUnit}` : ''}
     `;
-    return (
-        <ParentDiv
-            className={classNames(styles.sp, className, {
-                [styles.xsmall]: size === Size.VERY_SMALL,
-                [styles.small]: size === Size.SMALL,
-                [styles.medium]: size === Size.MEDIUM,
-                [styles.large]: size === Size.LARGE,
-                [styles.veryLarge]: size === Size.VERY_LARGE
-            })}
-            style={style}
-        />
-    );
-};
+const StyledWrapper = styled.div`
+    ${dynamicStyles}
+`;
+
+export const Spacer = ({ size = Size.LARGE, sizeUnit = Unit.PX, className = '', style }: SpacerProps) => (
+    <StyledWrapper
+        className={classNames(styles.sp, className, {
+            [styles.xsmall]: size === Size.VERY_SMALL,
+            [styles.small]: size === Size.SMALL,
+            [styles.medium]: size === Size.MEDIUM,
+            [styles.large]: size === Size.LARGE,
+            [styles.veryLarge]: size === Size.VERY_LARGE
+        })}
+        style={style}
+        size={size}
+        sizeUnit={sizeUnit}
+    />
+);

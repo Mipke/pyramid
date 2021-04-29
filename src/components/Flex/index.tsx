@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import { Size } from '../../common/Size';
 import { Unit } from '../../common/Unit';
 import styled from '@emotion/styled';
+import { css } from '@emotion/react';
 
 export enum JustifyContent {
     SPACE_BETWEEN = 'SPACE_BETWEEN',
@@ -42,6 +43,21 @@ interface FlexProps {
     spacerUnit?: Unit;
 }
 
+interface DynamicStylesProps {
+    spacerSize: Size | number | 'NONE';
+    spacerUnit: Unit;
+}
+
+const dynamicStyles = ({ spacerSize, spacerUnit }: DynamicStylesProps) =>
+    css`
+        & > * {
+            ${typeof spacerSize === 'number' ? `margin-left: ${spacerSize}${spacerUnit}` : ''}
+        }
+    `;
+const StyledWrapper = styled.div`
+    ${dynamicStyles}
+`;
+
 export const Flex = React.forwardRef<HTMLDivElement, FlexProps>(
     (
         {
@@ -56,13 +72,8 @@ export const Flex = React.forwardRef<HTMLDivElement, FlexProps>(
         }: FlexProps,
         ref
     ) => {
-        const ParentDiv = styled('div')`
-            & > * {
-                ${typeof spacerSize === 'number' ? `margin-left: ${spacerSize}${spacerUnit}` : ''}
-            }
-        `;
         return (
-            <ParentDiv
+            <StyledWrapper
                 className={classNames(styles.fl, className, {
                     [styles.spaceBetween]: justifyContent === JustifyContent.SPACE_BETWEEN,
                     [styles.justifyEnd]: justifyContent === JustifyContent.END,
@@ -80,9 +91,11 @@ export const Flex = React.forwardRef<HTMLDivElement, FlexProps>(
                 })}
                 style={style}
                 ref={ref}
+                spacerSize={spacerSize}
+                spacerUnit={spacerUnit}
             >
                 {children}
-            </ParentDiv>
+            </StyledWrapper>
         );
     }
 );

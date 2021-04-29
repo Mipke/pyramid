@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import { Size } from '../../common/Size';
 import { Unit } from '../../common/Unit';
 import styled from '@emotion/styled';
+import { css } from '@emotion/react';
 
 interface WrappingGroupProps {
     /** Optional className additionally placed onto the spacer div */
@@ -18,28 +19,38 @@ interface WrappingGroupProps {
     spacerUnit?: Unit;
 }
 
+interface DynamicStylesProps {
+    spacerSize: Size | number | 'NONE';
+    spacerUnit: Unit;
+}
+
+const dynamicStyles = ({ spacerSize, spacerUnit }: DynamicStylesProps) =>
+    css`
+        & > * {
+            ${typeof spacerSize === 'number' ? `margin-right: ${spacerSize}${spacerUnit};` : ''}
+            ${typeof spacerSize === 'number' ? `margin-top: ${spacerSize}${spacerUnit};` : ''}
+        }
+    `;
+const StyledWrapper = styled.div`
+    ${dynamicStyles}
+`;
+
 export const WrappingGroup = React.forwardRef<HTMLDivElement, WrappingGroupProps>(
-    ({ className = '', style, spacerSize = Size.MEDIUM, children, spacerUnit = Unit.PX }, ref) => {
-        const ParentDiv = styled('div')`
-            & > * {
-                ${typeof spacerSize === 'number' ? `margin-right: ${spacerSize}${spacerUnit};` : ''}
-                ${typeof spacerSize === 'number' ? `margin-top: ${spacerSize}${spacerUnit};` : ''}
-            }
-        `;
-        return (
-            <ParentDiv
-                className={classNames(styles.wrappingGroup, className, {
-                    [styles.verySmallerSpacers]: spacerSize === Size.VERY_SMALL,
-                    [styles.smallerSpacers]: spacerSize === Size.SMALL,
-                    [styles.mediumSpacers]: spacerSize === Size.MEDIUM,
-                    [styles.largerSpacers]: spacerSize === Size.LARGE,
-                    [styles.veryLargerSpacers]: spacerSize === Size.VERY_LARGE
-                })}
-                style={style}
-                ref={ref}
-            >
-                {children}
-            </ParentDiv>
-        );
-    }
+    ({ className = '', style, spacerSize = Size.MEDIUM, children, spacerUnit = Unit.PX }, ref) => (
+        <StyledWrapper
+            className={classNames(styles.wrappingGroup, className, {
+                [styles.verySmallerSpacers]: spacerSize === Size.VERY_SMALL,
+                [styles.smallerSpacers]: spacerSize === Size.SMALL,
+                [styles.mediumSpacers]: spacerSize === Size.MEDIUM,
+                [styles.largerSpacers]: spacerSize === Size.LARGE,
+                [styles.veryLargerSpacers]: spacerSize === Size.VERY_LARGE
+            })}
+            style={style}
+            ref={ref}
+            spacerSize={spacerSize}
+            spacerUnit={spacerUnit}
+        >
+            {children}
+        </StyledWrapper>
+    )
 );
