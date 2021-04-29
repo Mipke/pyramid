@@ -6,7 +6,7 @@
     "start": "styleguidist server",
     "build:styleguide": "styleguidist build",
     "build": "rimraf build && rollup -c",
-    "publish": "yarn build && npm-publish",
+    "deploy": "yarn build && npm-publish",
     "format": "yarn prettier --config .prettierrc.json --loglevel error --write \"{src,tests}/**/*.{ts,tsx}\""
   },
   "main": "build/index.js",
